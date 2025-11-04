@@ -54,3 +54,47 @@
 	opacity: .8;
 	border-color: var(--text-error) !important;
 }
+
+.gpgimage-wrapper {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.gpgimage {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+
+.gpgimage-lock {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.55);
+  border-radius: 4px;
+  z-index: 10;
+  pointer-events: none; /* make icon non-interactive unless you want it clickable */
+  color: white; /* matches theme via currentColor on SVG path */
+}
+
+.gpgimage-title-container {
+    font-family: var(--file-header-font);
+    font-size: var(--file-header-font-size);
+    font-weight: var(--file-header-font-weight);
+    flex: 1 1 auto;
+    overflow: hidden;
+    position: relative;
+    justify-content: var(--file-header-justify);
+    display: flex;
+    align-items: center;
+    gap: var(--size-4-1);
+    min-width: 0;
+    min-height: 44px;
+}

@@ -1,4 +1,4 @@
-# gpgCrypt for Obsidian
+# gpgCrypt for Obsidian (With image encryption)
 
 gpgCrypt is an Obsidian plugin to encrypt your notes effortlessly and seamlessly using GnuPG. All Obsidian functions can be used as usual, without reduced Markdown experience.  
 It integrates OpenPGP.js or your local GnuPG installation. For those seeking more advanced security measures, integration with the local GnuPG installation enables the use of OpenPGP smartcards (e.g. with YubiKey or Nitrokey).
@@ -19,6 +19,7 @@ It integrates OpenPGP.js or your local GnuPG installation. For those seeking mor
 - Tested with Obsidian Sync
 - Status bar integration
 - Support for mobile devices (only with OpenPGP.js)
+- Support image encryption
 
 ## Installation
 
