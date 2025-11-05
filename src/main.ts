@@ -220,10 +220,8 @@ export default class GpgPlugin extends Plugin {
       this.app.workspace.on("file-menu", async (menu, file) => {
         const tFile = (file as TFile);
         const tFileExt = tFile.extension;
-        if (tFileExt !== "md" &&
-          tFileExt !== "gpg" &&
-          !GpgImage.NativeImageExtension.some(x => x === tFileExt) &&
-          !GpgImage.GpgImageExtension.some(x => x === tFileExt)) {
+        if (tFileExt !== "md" && tFileExt !== "gpg" &&
+           !GpgImage.NativeImageExtension.concat(GpgImage.GpgImageExtension).some(x => x === tFileExt)) {
           return;
         }
 
@@ -252,7 +250,6 @@ export default class GpgPlugin extends Plugin {
       })
     );
 
-    // TODO: Need to support command palette
     this.addCommand({
       id: 'gpg-encrypt-permanently',
       name: 'Encrypt file permanently',
@@ -262,7 +259,8 @@ export default class GpgPlugin extends Plugin {
           return false;
         }
 
-        if (activeFile.extension !== "md" && activeFile.extension !== "gpg") {
+        if (activeFile.extension !== "md" && activeFile.extension !== "gpg" && 
+          !GpgImage.NativeImageExtension.concat(GpgImage.GpgImageExtension).some(x => x === activeFile.extension)) {
           return false;
         }
 
@@ -289,7 +287,8 @@ export default class GpgPlugin extends Plugin {
           return false;
         }
 
-        if (activeFile.extension !== "md" && activeFile.extension !== "gpg") {
+        if (activeFile.extension !== "md" && activeFile.extension !== "gpg" &&
+          !GpgImage.NativeImageExtension.concat(GpgImage.GpgImageExtension).some(x => x === activeFile.extension)) {
           return false;
         }
 
@@ -893,9 +892,7 @@ export default class GpgPlugin extends Plugin {
         //assuming its a folder
         this.encryptAllFilesInPath(child as TFolder);
       }
-
     })
-
   }
 
   async persistentFileEncrypt(file: TFile) {
